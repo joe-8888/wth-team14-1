@@ -3,7 +3,7 @@ on:
 name: Azure ARM
     
 env:
-  targetEnv: jsdevopstest
+  targetEnv: jsdevopsprod
 
 jobs:
   build-and-deploy:
