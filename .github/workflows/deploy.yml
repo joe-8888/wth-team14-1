@@ -12,14 +12,14 @@ jobs:
       # Log into Azure
       - uses: azure/login@v1
         with:
-          creds: ${{ secrets.USER_PRINCIPLE }}
+          creds: ${{ secrets.SERVICE_PRINCIPLE }}
 
       # Deploy ARM template
       - name: Run ARM deploy
         uses: azure/arm-deploy@v1
         with:
-          subscriptionId: ${{ secrets.SERVICE_PRINCIPLE }}
-          resourceGroupName: ${{ secrets.wth-team14-rg }}
+          subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
+          resourceGroupName: wth-team14-rg
           template: ./azuredeploy.json
           parameters: storageAccountType=Standard_LRS
 
