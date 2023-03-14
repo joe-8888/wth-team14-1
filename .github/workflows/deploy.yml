@@ -1,6 +1,10 @@
 on:
   workflow_dispatch:
-    name: Azure ARM
+name: Azure ARM
+    
+env:
+  targetEnv: jsdevopstest
+
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
@@ -21,7 +25,7 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: wth-team14-rg
           template: ./ARM-Templates/container-webapp-template.json
-          # parameters: storageAccountType=Standard_LRS
+          parameters: webAppName=${{env.targetEnv}}
 
       # output containerName variable from template
       - run: echo ${{ steps.deploy.outputs.containerName }}
