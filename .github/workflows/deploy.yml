@@ -1,19 +1,20 @@
-on: workflow_dispatch:
-  name: Azure ARM
-  jobs:
-    build-and-deploy:
-      runs-on: ubuntu-latest
-      steps:
+on:
+  workflow_dispatch:
+    name: Azure ARM
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
 
-        # Checkout code
+      # Checkout code
       - uses: actions/checkout@main
 
-        # Log into Azure
+      # Log into Azure
       - uses: azure/login@v1
         with:
           creds: ${{ secrets.SERVICE_PRINCIPLE }}
 
-        # Deploy ARM template
+      # Deploy ARM template
       - name: Run ARM deploy
         uses: azure/arm-deploy@v1
         with:
@@ -22,5 +23,5 @@ on: workflow_dispatch:
           template: ./azuredeploy.json
           parameters: storageAccountType=Standard_LRS
 
-        # output containerName variable from template
+      # output containerName variable from template
       - run: echo ${{ steps.deploy.outputs.containerName }}
