@@ -3,11 +3,11 @@
     "contentVersion": "1.0.0.0",
     "parameters": {
         "webAppName": {
-            "defaultValue": "jsdevops-dev",
+            "defaultValue": "jsdevopsdev",
             "type": "String"
         },
         "hostingPlanName": {
-            "defaultValue": "jsdevops-asp",
+            "defaultValue": "jsdevopsasp",
             "type": "String"
         },
         "appInsightsLocation": {
@@ -15,7 +15,7 @@
             "type": "String"
         },
         "appInsightsName": {
-            "defaultValue": "jsdevops-ai",
+            "defaultValue": "jsdevopsai",
             "type": "String"
         },        
         "sku": {
