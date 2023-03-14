@@ -21,7 +21,7 @@ jobs:
           subscriptionId: ${{ secrets.AZURE_SUBSCRIPTION }}
           resourceGroupName: wth-team14-rg
           template: ./ARM-Templates/container-webapp-template.json
-          parameters: storageAccountType=Standard_LRS
+          # parameters: storageAccountType=Standard_LRS
 
       # output containerName variable from template
       - run: echo ${{ steps.deploy.outputs.containerName }}
